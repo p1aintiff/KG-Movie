@@ -1,0 +1,48 @@
+
+<div class="result">
+    <h3>电影信息</h3>
+<ol>
+    {% for data in datas %}
+        <li>
+            <p>电影名称: {{ data.name }}</p>
+            <p>导演: {{ data.director }}</p>
+            <p>上映日期: {{ data.datePublished }}</p>
+            <p>时长: {{ data.duration }} 分钟</p>
+            <p>描述: {{ data.description }}</p>
+        </li>
+    {% endfor %}
+</ol>
+</div>
+<style type="text/css">
+    .result {
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+    }
+
+    h3 {
+        color: #007BFF;
+        font-size: 20px;
+    }
+
+    ol {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        background-color: #fff;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+
+    /* 添加更多样式根据需求 */
+</style>

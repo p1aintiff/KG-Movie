@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影、导演和编剧检索</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #searchForm {
+            text-align: center;
+        }
+        #searchSelect {
+            padding: 10px;
+        }
+        #searchInput {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+        #searchButton {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>电影、导演和编剧检索</h1>
+        <form id="searchForm" action="search_results.html" method="GET">
+            <select id="searchSelect" name="searchType">
+                <option value="movie">电影</option>
+                <option value="director">导演</option>
+                <option value="writer">编剧</option>
+            </select>
+            <input type="text" id="searchInput" name="query" placeholder="输入查询条件" required>
+            <button id="searchButton" type="submit">搜索</button>
+        </form>
+    </div>
+
+    <div class="container">
+        
+        <div id="searchResults">
+            <!-- 这里将展示搜索结果 -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // 使用jQuery来监听搜索按钮的点击事件
+            $('#searchForm').submit(function (event) {
+                // 阻止表单默认提交行为
+                event.preventDefault();
+
+                // 获取选择框的值和输入框的值
+                var type = $('#searchSelect').val();
+                var query = $('#searchInput').val();
+
+                
+                // 导航到搜索结果页面
+                $.ajax({
+            url: '/search/',
+            type: 'POST',
+            data: { searchType: type, query: query },
+            success: function (data) {
+                // 清除先前的搜索结果
+                $('#searchResults').empty();
+
+                // 在成功回调中将结果填充到#container中
+                $('#searchResults').html(data);
+            }
+        });
+    });
+                
+            });
+    </script>
+
+
+
+</body>
+</html>

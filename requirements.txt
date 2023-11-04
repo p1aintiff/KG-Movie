@@ -1,0 +1,7 @@
+pandas~=2.1.1
+neo4j~=5.13.0
+flask~=3.0.0
+requests~=2.31.0
+lxml~=4.9.3
+Scrapy~=2.11.0
+itemadapter~=0.8.0

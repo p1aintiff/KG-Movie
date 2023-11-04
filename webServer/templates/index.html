@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo4j 图数据库和知识图谱</title>
+    <script src="{{ url_for('static', filename='jQuery.js') }}"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #searchButton {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Neo4j 图数据库和知识图谱</h1>
+    </header>
+    <div class="container">
+        <h2>什么是Neo4j？</h2>
+        <p>Neo4j是一种图数据库管理系统，用于存储和查询数据的图结构。它广泛用于知识图谱、社交网络、推荐系统等应用领域。</p>
+
+        <h2>什么是知识图谱？</h2>
+        <p>知识图谱是一种图形数据库的应用，用于建模和存储实体之间的关系，以便更好地理解和查询关联数据。</p>
+
+        <h2>搜索知识图谱</h2>
+        <button id="searchButton">🔍</button>
+    </div>
+
+    <script>
+        // 使用jQuery来监听搜索按钮的点击事件
+        $(document).ready(function () {
+            $('#searchButton').click(function () {
+               
+                window.location.href = '/search/';
+            });
+        });
+    </script>
+</body>
+</html>
